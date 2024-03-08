@@ -62,25 +62,35 @@
 }
 
 .navbar .input-group select,
-.navbar .input-group input {
+.navbar .input-group > input {
   background-color: black;
   color: #b3b3b3;
 }
 
-.navbar .input-group input {
+.navbar .input-group > input {
   border: none;
   border-radius: 15px;
   height: 3em;
   text-indent: 10px;
 }
-.navbar .input-group input::placeholder {
+.navbar .input-group > input::placeholder {
   font-weight: 600;
   font-size: 17px;
   color: rgba(255, 255, 255, 0.779);
 }
 
+.navbar .input-group .date {
+  background-color: black;
+  color: #b3b3b3;
+  text-indent: 4px;
+  font-size: 16px;
+}
+.navbar .input-group .date::placeholder {
+  color: #b3b3b3;
+}
 
-.navbar .input-group select {
+.navbar .input-group select,
+.navbar .input-group .date {
   height: 23px;
   border: none;
   display: block;
@@ -102,6 +112,7 @@
   padding: 0.75em 1.25em 0.5em 1.25em;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  cursor: pointer;
 }
 
 .navbar .hr {
@@ -190,11 +201,17 @@
 }
 
 .body .movie-card .cover {
+  display: flex;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 15em;
   border-radius: 5px;
+}
+
+.body .movie-card .cover img {
+  margin: auto 0.15em 0.15em auto;
+  cursor: pointer;
 }
 
 .body .movie-card .header h2 {
@@ -327,4 +344,24 @@
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .body,
+  .hero,
+  .footer {
+    width: 200vw ;
+  }
+  .navbar {
+    width: 200vw ;
+  }
+  .body,
+  .navbar {
+    margin: 0 ;
+  }
+
+  .body .movie-card .cover img{
+    width: 40px;
+    height: 40px;
+  }
 }

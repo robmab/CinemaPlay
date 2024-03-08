@@ -50,16 +50,13 @@
 
       <!-- SEARCH -->
       <div class="input-group">
-        <input id="title" placeholder="Buscar película por nombre" type="text" class="form-control"
-          aria-label="Text input with dropdown button">
+        <input onkeydown="filterCards()" id="title" placeholder="Buscar película por nombre" type="text"
+          class="form-control" aria-label="Text input with dropdown button">
+
         <div class="hr" style="width: 0.1em;"></div>
         <div class="input-group-append">
           <p>Fecha</p>
-          
-          <select id="release-date">
-            <option value="" selected disabled hidden>Elegir fecha</option>
-            <option value="rigatoni">Rigatoni</option>
-          </select>
+          <input id="release-date" class="date" type="text" placeholder="Año1-Año2">
 
         </div>
         <div class="hr"></div>
@@ -67,21 +64,21 @@
           <p>Idioma</p>
           <select id="original-language">
             <option value="" selected disabled hidden>Elegir idioma</option>
-            <?php 
+            <option value="" >Ninguno</option>
+            <?php
             $languages = array();
             foreach ($_SESSION['films'] as $c => $arr) {
-                $languages[] =strtoupper($arr['original_language'])    ;
+              $languages[] = strtoupper($arr['original_language']);
             }
             $languages = array_unique($languages);
             foreach ($languages as $language) { ?>
-              <option value="<?php echo $language?>"><?php echo $language?></option>
+              <option value="<?php echo $language ?>">
+                <?php echo $language ?>
+              </option>
             <?php } ?>
           </select>
         </div>
-        <div
-          class="icon-search"
-          onclick="filterCards()"        
-        >
+        <div class="icon-search" onclick="filterCards()">
           <img src="../img/Icon_Search-Black.png" alt="" width="21px">
         </div>
 
@@ -114,26 +111,36 @@
 
       <?php foreach ($_SESSION['films'] as $c => $arr) { ?>
 
-        <div
-          class="movie-card  col-lg-2 col-6"
-          data-title="<?php echo $arr['title']?>"
-          data-release-date="<?php echo $arr['release_date']?>"
-          data-original-language="<?php echo $arr['original_language']?>"
-        >
-          <div class="cover"
-            style="background-image: url('<?php echo $arr['backdrop_path']?>');">
-          </div>
+        <div class="movie-card  col-lg-2 col-6" data-title="<?php echo $arr['title'] ?>"
+          data-release-date="<?php echo $arr['release_date'] ?>"
+          data-original-language="<?php echo $arr['original_language'] ?>">
+          <div class="cover" style="background-image: url('<?php echo $arr['backdrop_path'] ?>');">
+          <img onclick="like(true,<?php echo $c ?>)" id="like-white-<?php echo $c ?>" src="../img/Icon_Like_White.png" alt="" height="15px" width="15px"> 
+          <img onclick="like(false,<?php echo $c ?>)" id="like-red-<?php echo $c ?>" class="hidden" src="../img/Icon_Like_Red.png" alt="" height="15px" width="15px"> 
+        </div>
           <div class="header">
-            <h2><?php echo $arr['title']?></h2>
-            <p class="date"><?php echo $arr['release_date']?></p>
-            <p class="rating"><img src="../img/Icon_Star.png" alt=""><?php echo $arr['vote_average']?>
-            <span>(<?php echo $arr['vote_count']?> votos)</span></p>
+            <h2>
+              <?php echo $arr['title'] ?>
+            </h2>
+            <p class="date">
+              <?php echo $arr['release_date'] ?>
+            </p>
+            <p class="rating"><img src="../img/Icon_Star.png" alt="">
+              <?php echo $arr['vote_average'] ?>
+              <span>(
+                <?php echo $arr['vote_count'] ?> votos)
+              </span>
+            </p>
           </div>
           <div class="info">
-            <p><?php echo $arr['overview']?></p>
+            <p>
+              <?php echo $arr['overview'] ?>
+            </p>
             <div class="lang">
               <p class="">Idioma
-              <div class="hr"></div> <span><?php echo $arr['original_language']?></span></p>
+              <div class="hr"></div> <span>
+                <?php echo $arr['original_language'] ?>
+              </span></p>
             </div>
           </div>
         </div>
@@ -191,12 +198,17 @@
       const cards = document.querySelectorAll('.movie-card');
       const title = document.querySelector('#title')?.value.toLowerCase() || '';
       const releaseDate = document.querySelector('#release-date')?.value.toLowerCase() || '';
+      const date1 =parseInt(releaseDate.split("-")[0])|| 0 ;
+      const date2 =parseInt(releaseDate.split("-")[1]) || 99999999;
+
       const originalLanguage = document.querySelector('#original-language')?.value.toLowerCase() || '';
       cards.forEach(card => {
         const cardTitle = card.getAttribute('data-title').toLowerCase();
         const cardReleaseDate = card.getAttribute('data-release-date').toLowerCase();
+        const cardAge = parseInt(cardReleaseDate.split("-")[2]);
+
         const cardOriginalLanguage = card.getAttribute('data-original-language').toLowerCase();
-        if (cardTitle.includes(title) && cardReleaseDate.includes(releaseDate) && cardOriginalLanguage.includes(originalLanguage)) {
+        if (cardTitle.includes(title) && (date1 <= cardAge && date2 >= cardAge)  && cardOriginalLanguage.includes(originalLanguage)) {
           card.classList.remove('hidden');
         } else {
           card.classList.add('hidden');
@@ -204,6 +216,20 @@
 
         /* debugger */
       });
+    }
+
+
+    function like(active, id) {
+      const white = document.querySelector(`#like-white-${id}`);
+      const red = document.querySelector(`#like-red-${id}`);
+
+      if (active){
+        white.classList.add('hidden');
+        red.classList.remove('hidden');
+      }else{
+        white.classList.remove('hidden');
+        red.classList.add('hidden');
+      }
     }
   </script>
 
