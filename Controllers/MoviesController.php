@@ -4,6 +4,7 @@ include '../ConexiónBD.php';
 
 $_SESSION['check'] = true;
 
+/* SELECT ALL MOVIES */
 $sql = "SELECT * FROM films";
 $result = $connection->query($sql);
 
@@ -34,22 +35,18 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 
-// Comparison function
-/* function compareDates($a, $b) {
-  $dateA = strtotime($a['date']);
-  $dateB = strtotime($b['date']);
-  
-  if ($dateA == $dateB) {
-     return 0;
-  } elseif ($dateA > $dateB) {
-     return 1;
-  } else {
-     return -1;
+
+/* ORDER BY RATING */
+function sortByOrder($a, $b) {
+  if ($a['vote_average'] > $b['vote_average']) {
+      return -1;
+  } elseif ($a['vote_average'] < $b['vote_average']) {
+      return 1;
   }
+  return 0;
 }
 
-// Sort the multidimensional array using the custom comparison function
-usort($films, 'compareDates'); */
+usort($films, 'sortByOrder');
 
 /* print_r ($films[30]); */
 
