@@ -54,7 +54,7 @@ usort($films, 'compareDates'); */
 /* print_r ($films[30]); */
 
 $_SESSION['films'] = $films;
-header("Location:../Vistas/Index.php");
+header("Location:../Views/Index.php");
 exit;
 
 ?>

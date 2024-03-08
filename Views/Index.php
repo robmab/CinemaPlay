@@ -9,7 +9,7 @@
   if (isset($_SESSION['check']))
     unset($_SESSION['check']);
   else
-    header("Location:../Controladores/MoviesController.php");
+    header("Location:../Controllers/MoviesController.php");
   ?>
 
   <meta charset="UTF-8">
