@@ -1,0 +1,330 @@
+* {
+  font-family: system-ui !important;
+  line-height: 20px;
+  /* border: 1px solid green; */
+}
+
+/* NAVBAR */
+
+.navbar {
+  padding: 10px 50px !important;
+  background: rgb(0, 0, 0) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(32, 139, 171, 0.8) 86%
+  ) !important;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(1px);
+
+  z-index: 1000;
+}
+/* NAVBAR - LEFT*/
+.navbar .navbar-brand {
+  margin-right: 4em;
+}
+
+.navbar a {
+  color: rgba(255, 255, 255, 0.615) !important;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.navbar .active a {
+  color: white !important;
+}
+
+.navbar ul a {
+  width: 10%;
+}
+
+/* NAVBAR - SEARCH*/
+
+.navbar button {
+  background-color: #f6c700;
+}
+
+.navbar .input-group {
+  border-radius: 15px !important;
+  background-color: black;
+}
+
+.navbar .input-group-append {
+  padding: 0.75em 1em 0.25em 1em;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar .input-group select,
+.navbar .input-group input {
+  background-color: black;
+  color: #b3b3b3;
+}
+
+.navbar .input-group input {
+  border: none;
+  border-radius: 15px;
+  height: 3em;
+  text-indent: 10px;
+}
+.navbar .input-group input::placeholder {
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.779);
+}
+
+
+.navbar .input-group select {
+  height: 23px;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
+
+.navbar .input-group p {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f6c700;
+  line-height: 1px;
+  height: 0.5em;
+  margin: 0;
+  padding-left: 0.25em;
+}
+
+.navbar .icon-search {
+  background-color: #f6c700;
+  padding: 0.75em 1.25em 0.5em 1.25em;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.navbar .hr {
+  margin: auto 0 auto 0;
+  height: 2.25em;
+  width: 0.15em;
+  background-color: rgba(255, 255, 255, 0.749);
+  border-radius: 20px;
+}
+
+/* NAVBAR - Right*/
+
+.navbar .rigth-icons img {
+  margin-left: 2em;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  background-image: url("../../img/Banner_Desktop.jpg");
+  height: 85vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom: 1px rgba(255, 255, 255, 0.167) solid;
+
+  display: flex;
+}
+
+.hero .content {
+  position: relative;
+  top: 43%;
+  left: 9%;
+
+  height: 5em;
+  width: 28em;
+}
+
+.hero .content * {
+  color: white;
+}
+
+.hero .content h1 {
+  font-size: 78px;
+  line-height: 70px;
+  margin-bottom: 0.6em;
+}
+.hero .content p {
+  font-size: 15px;
+}
+
+/* BODY */
+.body {
+  background-color: black;
+  padding: 2em 10em;
+}
+
+@media screen and (max-width: 768px) {
+  .body {
+    padding: 2em 2em;
+  }
+}
+
+.body > h1 {
+  text-transform: uppercase;
+  margin: 0 0 2em;
+  color: white;
+  font-size: 26px;
+}
+
+.body .movies {
+  display: flex;
+}
+
+.body .movie-card {
+  border-radius: 5px;
+
+  height: 30em;
+  margin-bottom: 5em;
+  cursor: pointer;
+}
+
+.body .movie-card * {
+  color: rgb(190, 190, 190);
+}
+
+.body .movie-card .cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 15em;
+  border-radius: 5px;
+}
+
+.body .movie-card .header h2 {
+  margin-top: 0.5em;
+  font-size: 18px;
+  color: white;
+}
+
+.body .movie-card .header p.date {
+  line-height: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.body .movie-card .header p.rating {
+  line-height: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f6c700;
+}
+
+.body .movie-card .header p.rating img {
+  margin: 0 0.2em 0.2em 0;
+}
+
+.body .movie-card .header p.rating span {
+  font-size: 11px;
+  color: #a6a6a6;
+}
+
+.body .movie-card .info {
+  word-wrap: break-word;
+}
+
+.body .movie-card .info > p {
+  font-size: 12px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.body .movie-card .info .lang {
+  display: flex;
+  align-items: center;
+}
+
+.body .movie-card .info .lang > p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.body .movie-card .info .lang > span {
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.body .movie-card .info .hr {
+  background-color: rgba(215, 215, 215, 0.682);
+  height: 0.5em;
+  width: 0.2px;
+  margin: 0 0.4em;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 6em;
+  background-color: #161214;
+}
+
+.footer .content {
+  display: flex;
+  justify-content: center;
+}
+
+.footer .content h1 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 0.75em;
+  text-transform: uppercase;
+}
+
+.footer .content p {
+  line-height: 12px;
+  color: rgb(216, 216, 216);
+}
+
+.footer .content > div {
+  margin: 0 4em !important;
+}
+
+.footer .content .select {
+  padding: 0.25em 0.8em;
+  background-color: #362f33;
+  height: 2em;
+  border-radius: 2px;
+}
+.footer .content .select img {
+  margin-right: 0.25em;
+}
+
+.footer .content .select select {
+  background-color: #16121400;
+  border: none;
+  color: rgb(232, 232, 232);
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.footer .social img {
+  height: 40px;
+  width: 40px;
+  margin-right: 0.5em;
+}
+
+.footer .end {
+  margin: 2em 0 0.75em;
+}
+
+.footer .end * {
+  color: white;
+}
+
+.hidden {
+  display: none;
+}

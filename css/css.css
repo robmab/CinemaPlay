@@ -1,0 +1,142 @@
+/* * {
+  border: 1px solid red;
+} */
+
+/* GENERAL */
+.align {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.align-x {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header {
+  background: lightsteelblue;
+  opacity: 90%;
+  height: auto;
+
+  padding: -100px 50px;
+}
+h1#banner {
+  color: white;
+
+  text-align: center;
+  font-size: 20px;
+}
+a#download {
+  display: block;
+  text-align: center;
+  width: 70px;
+  margin: 0px auto;
+  padding: 0px;
+  color: white;
+  text-transform: uppercase;
+
+  border: 1px solid #fff;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+label {
+  color: #006eec !important ;
+}
+
+/* HERO VIEWS*/
+.hero-area {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 180px;
+}
+
+.hero-area h1 {
+  color: rgb(242, 242, 242);
+  text-shadow: 3px 3px 1px black;
+}
+
+/* ALERTS */
+.alert {
+  color: red;
+  text-align: center;
+  padding-top: 1em;
+}
+
+
+/* TABLE */
+
+.table {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: scroll;
+}
+.table table {
+  margin: 1.5em 0 0 0;
+  scale: 0.95;
+}
+
+.table .role {
+  color: #e2b842;
+}
+.table .delete {
+  color: red;
+}
+.table .buyed {
+  color: greenyellow;
+}
+.table .reserved {
+  color: #e1b42b;
+}
+.table .rented {
+  color: deeppink;
+}
+
+.table .accepted {
+  color: palegoldenrod;
+}
+.table .standby {
+  color: #e2b842;
+}
+.table .ended {
+  color: #218838;
+}
+
+.table .banner {
+  width: 250px;
+  height: 30px;
+}
+.table .date {
+  width: 160px;
+  height: 30px;
+}
+.table .percent {
+  width: 60px;
+  height: 30px;
+}
+
+.table .services {
+  width: 100px;
+  height: 30px;
+  margin-bottom: 0.25em;
+}
+
+.transparent {
+  color: transparent !important;
+}
+
+.table img {
+  height: 50% !important;
+  width: 50% !important;
+}
+
+.table .services-img {
+  height: 30px !important;
+  width: 30px !important;
+}
