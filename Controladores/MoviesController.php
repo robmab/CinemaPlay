@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 }
 
 // Comparison function
-function compareDates($a, $b) {
+/* function compareDates($a, $b) {
   $dateA = strtotime($a['date']);
   $dateB = strtotime($b['date']);
   
@@ -49,7 +49,7 @@ function compareDates($a, $b) {
 }
 
 // Sort the multidimensional array using the custom comparison function
-usort($films, 'compareDates');
+usort($films, 'compareDates'); */
 
 /* print_r ($films[30]); */
 
